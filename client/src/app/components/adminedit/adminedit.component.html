@@ -1,0 +1,49 @@
+<div>
+    <div class="cart editForm" *ngIf="this._prod.prodId">
+        <form class="example-form" (ngSubmit)="submitMyData()">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>name</mat-label>
+            <input
+              matInput
+              [formControl]="name"
+              required
+            />
+            <mat-error *ngIf="name.invalid">{{ getErrorMessage() }}</mat-error>
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>category</mat-label>
+            <input
+              matInput
+              [formControl]="category"
+              required
+            />
+            <mat-error *ngIf="category.invalid">{{ getErrorMessage() }}</mat-error>
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>image url</mat-label>
+            <input
+              matInput
+              [formControl]="img"
+              required
+            />
+            <mat-error *ngIf="img.invalid">{{ getErrorMessage() }}</mat-error>
+          </mat-form-field>
+          <mat-form-field hintLabel="$" appearance="fill">
+            <mat-label>Enter price</mat-label>
+            <input
+              [formControl]="price"
+              matInput
+              #input
+              type="number"
+              
+            />
+            <mat-error *ngIf="price.invalid">{{getErrorMessage()}}</mat-error>
+            <mat-hint align="end">{{ input.value?.length || 0 }}/9</mat-hint>
+          </mat-form-field>
+          <p>{{this._prod.answer}}</p>
+          <button mat-raised-button color="primary" type="submit" [disabled]="name.invalid || price.invalid || category.invalid || img.invalid" >submit</button>
+        </form>
+      </div>
+      
+
+</div>

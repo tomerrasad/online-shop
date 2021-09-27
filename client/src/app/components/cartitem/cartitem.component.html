@@ -1,0 +1,10 @@
+<mat-card class="example-card">
+    <mat-card-title-group>
+      <mat-card-title><span [innerHTML]="cart.name | highlightpipe: name4"></span></mat-card-title>
+      <mat-card-subtitle>{{cart.price}}$</mat-card-subtitle>
+      <img mat-card-sm-image [src]='cart.img' >
+    </mat-card-title-group>
+    <mat-card-content>
+      <button (click)="changeQuantity(true)" *ngIf="!this._user.wannaPay">+</button><button>{{cart.quantity}}</button><button (click)="changeQuantity(false)" *ngIf="!this._user.wannaPay">-</button>
+    </mat-card-content>
+  </mat-card>

@@ -1,0 +1,29 @@
+.btn-list button {
+  min-width: 10vmin;
+  min-width: 14vmin;
+  font-weight: 900;
+  background-color: #fff;
+  margin: 0 0.3vmin;
+  color: green;
+}
+.btn-list{
+    display: flex;
+    justify-content:space-around;
+    align-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: absolute;
+    top: 10%;
+}
+.items{
+  width: 45em;
+    display: flex;
+    justify-content:stretch;
+    align-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: absolute;
+    top: 28%;
+    right:0%;
+
+}

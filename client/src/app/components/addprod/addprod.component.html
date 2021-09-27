@@ -1,0 +1,66 @@
+<div class="register">
+  <h1>Add new product</h1>
+<form class="example-form" (ngSubmit)="submitMyData()">
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Product name</mat-label>
+          <input matInput [formControl]="name" />
+          <mat-error *ngIf="name.invalid">{{ getErrorMessage() }}</mat-error>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="example-full-width category" appearance="fill">
+          <mat-label>category</mat-label>
+          <input matInput [formControl]="category" />
+          <mat-error *ngIf="category.invalid">{{
+            getErrorMessage()
+          }}</mat-error>
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+
+  <p>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>img src</mat-label>
+      <textarea
+        matInput
+        [formControl]="img"
+        placeholder="link to image"
+      ></textarea>
+      <mat-error *ngIf="img.invalid">{{ getErrorMessage() }}</mat-error>
+    </mat-form-field>
+  </p>
+
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>price</mat-label>
+          <input
+            matInput
+            #postalCode
+            type="number"
+            placeholder="$"
+            [formControl]="price"
+          />
+          <mat-error *ngIf="price.invalid">{{ getErrorMessage() }}</mat-error>
+
+          <mat-hint align="end">{{ postalCode.value.length }} / 5</mat-hint>
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+  <p>{{this._prod.answer}}</p>
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    [disabled]="(img.invalid && name.invalid && price.invalid)"
+  >
+    Add Product
+  </button>
+</form>
+</div>

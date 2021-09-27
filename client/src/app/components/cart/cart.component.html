@@ -1,0 +1,87 @@
+<div class="container">
+  <div class="top">
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-light"
+      style="background-color: #e3f2fd"
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand">SHOP</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/cart"
+                >Home</a
+              >
+            </li>
+
+            <li class="nav-item">
+              <a
+                class="nav-link disabled"
+                href="#"
+                tabindex="-1"
+                aria-disabled="true"
+                >contact us || rasadtomer@gmail.com || phone:0559870987</a
+              >
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+              [formControl]="name4"
+              (searched)="OnSearched(Search)"
+              
+            />
+            <button class="btn btn-outline-success" (click)="searchProd()">
+              Search
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              (click)="_user.logout()"
+            >
+              Logout
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <div *ngIf="this._user.token">
+    <button
+      type="button"
+      class="btn2 btn-secondary"
+      (click)="this._prod.prodId = 0"
+    >
+      +
+    </button>
+    <app-adminedit *ngIf="this._prod.prodId"></app-adminedit>
+    <app-addprod *ngIf="!this._prod.prodId"></app-addprod>
+  </div>
+  <div *ngIf="!this._user.token">
+  <h6 class="totalCart">total cart:{{ this._cart.totalCart }}$</h6>
+  <button mat-raised-button class="order" *ngIf="!this._user.wannaPay" color="primary" (click)="onClick()" >
+    Order The Cart
+  </button>
+  <br />
+  <div class="cart" >
+    <app-cartlist [name4]="name4.value"></app-cartlist>
+  </div>
+</div>
+  <app-prodlist class="products" *ngIf="!this._user.wannaPay"></app-prodlist>
+  <app-payform class="products" *ngIf="this._user.wannaPay"></app-payform>
+</div>

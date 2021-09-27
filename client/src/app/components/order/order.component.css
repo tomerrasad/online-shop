@@ -1,0 +1,48 @@
+body{
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+}
+.order{
+    width: 100vw;
+    height: 100vh;
+    margin: 0%;
+    display: grid;
+    grid-template-rows: 15% auto;
+    grid-template-columns: 50% auto;
+    grid-template-areas: "a a"
+                         "b c";
+
+}
+.top{
+    width: 99vw;
+
+    grid-area: a;
+    /* border: 1px solid black; */
+
+}
+.navbar{
+    background-color: #e3f2fd;
+
+}
+.cartList{
+    grid-area: b;
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+}
+.payFrom{
+    grid-area: c;
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+
+}

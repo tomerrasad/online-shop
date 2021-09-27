@@ -1,0 +1,42 @@
+<div class="form register">
+  <h1>login</h1>
+<form class="example-form" (ngSubmit)="submitMyData()">
+<mat-form-field appearance="fill">
+    <mat-label>Enter your password</mat-label>
+    <input
+      [formControl]="pass"
+      matInput
+      
+      [type]="hide ? 'password' : 'text'"
+    />
+    <button
+      mat-icon-button
+      matSuffix
+      (click)="hide = !hide"
+      [attr.aria-label]="'Hide password'"
+      [attr.aria-pressed]="hide"
+    >
+      <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+    </button>
+  </mat-form-field>
+  <mat-form-field hintLabel="9 characters only" appearance="fill">
+    <mat-label>Enter some id</mat-label>
+    <input
+      [formControl]="id"
+      matInput
+      #input
+      type="number"
+      min="100000000"
+      max="999999999"
+      placeholder="ID"
+    />
+    <mat-error *ngIf="id.invalid">{{ getIdErrorMessage() }}</mat-error>
+
+    <mat-hint align="end">{{ input.value?.length || 0 }}/9</mat-hint>
+  </mat-form-field>
+  <p>{{this._user.answer}}</p>
+  <button mat-raised-button color="primary" type="submit" [disabled]="id.invalid">log in</button>
+<p>dont have an account yet? <a class="a" (click)="this._user.changeComponent()">register</a></p>
+</form>
+
+</div>

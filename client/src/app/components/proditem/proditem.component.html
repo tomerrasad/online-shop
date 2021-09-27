@@ -1,0 +1,17 @@
+
+  <mat-card class="card">
+    <mat-card-title-group class="cardInfo">
+      <mat-card-title>{{prod.name}}</mat-card-title>
+      <mat-card-subtitle>{{prod.category}}</mat-card-subtitle>
+      <img mat-card-sm-image [src]="prod.img" alt="the product" >
+    </mat-card-title-group>
+    <mat-card-content>
+      <button mat-stroked-button color="primary" *ngIf="!this._user.token" (click)="_cart.addToCart(prod.id,userId);this._prod.prodId=prod.id">Add to cart</button>
+      <button mat-raised-button color="accent" *ngIf="this._user.token" (click)="listenToEvent()">edit</button>
+      {{prod.price}}$
+    </mat-card-content>
+    <mat-card-actions>
+
+    </mat-card-actions>
+  </mat-card>
+  

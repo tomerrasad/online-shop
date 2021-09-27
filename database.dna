@@ -1,0 +1,92 @@
+create database project4;
+use project4;
+create table users(
+    id varchar(9) ,
+    email varchar(255),
+    fname varchar(25),
+    lname varchar(25),
+    isadmin boolean,
+    pass varchar(255),
+    city varchar(25),
+    address varchar(255),
+    primary key(id)
+   
+);
+create table products(
+   id int auto_increment,
+    name varchar(255),
+    category varchar(25),
+    img varchar(255),
+    price int,
+    primary key(id)
+);
+create table carts(
+id int auto_increment,
+paid boolean,
+userId  varchar(9),
+createdDate date,
+primary key(id),
+foreign key (userId) references users(id)
+);
+create table cartItem(
+cartId int,
+productId int,
+quantity int,
+foreign key (cartId) references carts(id),
+foreign key (productId) references products(id)
+);
+create table orders(
+cartId int,
+city varchar(25),
+address varchar(255),
+shippingDate date,
+payment int,
+paymentDate date,
+foreign key (cartId) references carts(id)
+);
+INSERT INTO users(isadmin,email,id,pass) VALUES(true,'blah@blah.com','222222222','$2b$10$zLzO9OUAcUy2nNIInqiRI.hAkqT11pW0CxM0SNH2omFkdofzKKTEO');
+
+
+insert into products(name,category,img,price) values('Apple','fruits','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2QmkGwmo2Bnu2Dg_-hfMsZiF_TIoIjYj2BQ&usqp=CAU','6');
+
+
+
+
+
+insert into products(name,category,img,price) values('Banana','fruits','https://www.nipponexpress.com/press/report/img/06-Nov-20-ogp.jpeg','5');
+
+insert into products(name,category,img,price) values('Kiwi','fruits','https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Kiwi_aka.jpg/800px-Kiwi_aka.jpg','5');
+
+insert into products(name,category,img,price) values('Watermelon','fruits','https://images.heb.com/is/image/HEBGrocery/000320934?fit=constrain,1&wid=800&hei=800&fmt=jpg&qlt=85,0&resMode=sharp2&op_usm=1.75,0.3,2,0','8');
+
+
+insert into products(name,category,img,price) values('Milk','dairy','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQg4RDyPlXUKvpEOSA7UPXi_pl3TEqAaaN1-A&usqp=CAU','3');
+
+insert into products(name,category,img,price) values('Yogurt','dairy','https://www.strauss-group.com/wp-content/blogs.dir/3/files/sites/3/7290004584528.jpg','2');
+
+insert into products(name,category,img,price) values('Soy milk','dairy','https://old.veg.co.il/CMS/content/uploads/images/alpro-soy.png','4');
+
+insert into products(name,category,img,price) values('Coca cola','drinks','https://rimibaltic-res.cloudinary.com/image/upload/b_white,c_fit,f_auto,h_480,q_auto,w_480/d_ecommerce:backend-fallback.png/MAT_1353351_PCE_EE','2');
+
+insert into products(name,category,img,price) values('Apple juice','drinks','https://aldprdproductimages.azureedge.net/media/resized/$Aldi_GB/16.06.21/4088600056425_0_XL.jpg','2');
+
+insert into products(name,category,img,price) values('Grape juice','drinks','https://products1.imgix.drizly.com/ci-welchs-grape-juice-0810ac035d7bf88c.jpeg?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20','2');
+
+insert into products(name,category,img,price) values('Bread','other','https://assets.bonappetit.com/photos/5c62e4a3e81bbf522a9579ce/5:4/w_2815,h_2252,c_limit/milk-bread.jpg','3');
+
+insert into products(name,category,img,price) values('Eggs','other','https://images.immediate.co.uk/production/volatile/sites/30/2020/08/carton_of_eggs-84d8eef.jpg?quality=90&resize=768,574','6');
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------
+
+*ADMIN*
+ Id:222222222
+ password:1234
+
+
+
+
+

@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100vh;
+  margin: 0;
+}
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #bdf6bd;
+}
+nav {
+  box-shadow: 0 -0.4em 0.8em 0.5em rgb(0 0 0 / 50%);
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.register {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 2vmin;
+  padding: 0 1em;
+}
+.highlight {
+    background-color: yellow;
+    font-weight: bold;
+  }

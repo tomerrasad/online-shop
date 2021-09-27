@@ -1,0 +1,7 @@
+<div class="btn-list">
+<button mat-stroked-button color="warn" *ngFor="let category of _prod.categorysArr" (click)="_prod.fillterForCategory(category.name)">{{category.name}}</button>
+</div>
+<br>
+<div class="items">
+<app-proditem *ngFor="let prod of _prod.prodArr" [prod]="prod"></app-proditem>
+</div>

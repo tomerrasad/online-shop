@@ -1,0 +1,12 @@
+.registerContain{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    
+}
+.step2{
+    width: 20vw;
+    height: 15vh;
+    
+}

@@ -1,0 +1,74 @@
+
+<div><h1 class="title">Register</h1>
+
+<div class="example-container registerContain">
+  <form class="example-form registerContain" (ngSubmit)="submitMyData()">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Email</mat-label>
+      <input
+        matInput
+        placeholder="pat@example.com"
+        [formControl]="email"
+        required
+      />
+      <mat-error *ngIf="email.invalid">{{ getMailErrorMessage() }}</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Password minimum 8 charecters</mat-label>
+      <input
+        [formControl]="pass1"
+        minlength="8"
+        matInput
+        [type]="hide ? 'password' : 'text'"
+      />
+      <mat-error *ngIf="pass1.invalid">{{ getPass1ErrorMessage() }}</mat-error>
+
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="hide = !hide"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide"
+      >
+        <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+      </button>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Enter your password</mat-label>
+      <input
+        [formControl]="pass2"
+        matInput
+        [type]="hide ? 'password' : 'text'"
+      />
+      <mat-error *ngIf="pass2.invalid">{{ getPass2ErrorMessage() }}</mat-error>
+
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="hide = !hide"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide"
+      >
+        <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+      </button>
+    </mat-form-field>
+    <mat-form-field hintLabel="9 characters only" appearance="fill">
+      <mat-label>Enter some id</mat-label>
+      <input
+        [formControl]="id"
+        min="100000000"
+        max="999999999"
+        matInput
+        #input
+        type="number"
+        placeholder="ID"
+      />
+      <mat-error *ngIf="id.invalid">{{ getIdErrorMessage() }}</mat-error>
+      <mat-hint align="end">{{ input.value?.length || 0 }}/9</mat-hint>
+    </mat-form-field>
+    <p>{{this._user.answer}}</p>
+    <button mat-raised-button color="primary" type="submit" [disabled]="id.invalid || pass1.invalid || pass2.invalid || email.invalid" >NEXT</button>
+  </form>
+</div>
+<p>already have account?<a class="a" (click)="this._user.changeComponent()">login</a></p>
+</div>
